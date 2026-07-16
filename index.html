@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo_List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="sky-background" class="sky-background"></div>
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <button onclick="showSection('wish-section')">Plant Wish</button>
+            <button onclick="showSection('task-section')">Bloom Task</button>
+            <button onclick="showSection('personality-section')">Growth Quiz</button>
+            <button onclick="scrollToSection('garden-section')">Garden</button>
+            <button onclick="scrollToAccount()">ToDo List</button>
+        </div>
+    </nav>
+
+
+    <main class="centerpiece">
+        <div class="welcome-msg">Welcome to Your Garden</div>
+        <div id="growth-flower" class="flower">
+            <div class="glow-layer"></div>
+            <div class="flower-core-ball"></div>
+            <div class="petals-canvas"></div>
+        </div>
+        <div id="flower-info" class="flower-info">
+            <h1 id="flower-name">What is your personality?</h1>
+            <p id="flower-desc">Invest in yourself.</p>
+        </div>
+    </main>
+
+
+    <div class="tree-system">
+        <div class="main-trunk"></div>
+        <div id="branches-area"></div>
+    </div>
+
+
+    <section id="wish-section" class="overlay-section hidden">
+        <div class="glass-card">
+            <div class="card-header">
+                <h3>Illuminate the Sky</h3>
+                <span>✨</span>
+            </div>
+            <p>Every wish becomes a star in the sky of your life.</p>
+            <input type="text" id="wish-input" placeholder="Whisper your dream...">
+            <div class="card-footer">
+                <button class="primary-btn" onclick="addWish()">Add Star</button>
+                <button class="return-btn" onclick="closeSection()">Return</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="task-section" class="overlay-section hidden">
+        <div class="glass-card">
+            <div class="card-header">
+                <h3>Nurture the Bloom</h3>
+                <span>🌸</span>
+            </div>
+            <p>Every task adds a petal to your growth flower.</p>
+            <input type="text" id="task-input" placeholder="What did you achieve?">
+            <div class="card-footer">
+                <button class="primary-btn" onclick="addTask()">Add Petal</button>
+                <button class="return-btn" onclick="closeSection()">Return</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="personality-section" class="overlay-section hidden">
+        <div class="glass-card">
+            <h3>Identify Your Essence</h3>
+            <div class="quiz-wrapper">
+                <div class="quiz-step">
+                    <label>AI Preference</label>
+                    <div class="option-grid">
+                        <button onclick="setChoice('aiPreference', 'gemini', event)">Gemini ✨</button>
+                        <button onclick="setChoice('aiPreference', 'chatgpt', event)">ChatGPT 🤖</button>
+                    </div>
+                </div>
+                <div class="quiz-step">
+                    <label>Work Environment</label>
+                    <div class="option-grid">
+                        <button onclick="setChoice('environment', 'home', event)">Home 🏠</button>
+                        <button onclick="setChoice('environment', 'outside', event)">Outside 🌲</button>
+                    </div>
+                </div>
+                <div class="quiz-step">
+                    <label>Visual Mode</label>
+                    <div class="option-grid">
+                        <button onclick="setChoice('visualMode', 'dark', event)">Dark 🌑</button>
+                        <button onclick="setChoice('visualMode', 'light', event)">Light ☀️</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="submit-btn" onclick="activateGrowth()">Manifest Bloom</button>
+                <button class="return-btn" onclick="closeSection()">Return</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="garden-section" class="gallery-section">
+        <div class="gallery-title">
+            <h2>Unique Flowers and Personalities</h2>
+            <p>Every personality blossoms into a unique manifestation. Explore all possible flowers.</p>
+        </div>
+        <div id="flower-gallery-grid" class="gallery-grid"></div>
+    </section>
+
+
+    <footer id="account-section" class="history-view">
+        <div class="history-title">
+            <h2>Your ToDo List</h2>
+            <p>Plant your intentions and nurture them to see your world bloom.</p>
+        </div>
+        <div class="history-grid">
+            <div class="history-card">
+                <div class="list-header">
+                    <h3>Pending Wishes</h3>
+                    <span class="count" id="wish-count">0 waiting</span>
+                </div>
+                <div id="wish-history" class="scroll-list"></div>
+            </div>
+            <div class="history-card">
+                <div class="list-header">
+                    <h3>Pending Tasks</h3>
+                    <span class="count" id="task-count">0 waiting</span>
+                </div>
+                <div id="task-history" class="scroll-list"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
